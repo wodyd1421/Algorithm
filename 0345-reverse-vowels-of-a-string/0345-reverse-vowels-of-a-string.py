@@ -1,4 +1,21 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        vowels = [vowel[0] for vowel in re.finditer('[aeiou]', s, re.I)]
-        return re.sub('[aeiou]', lambda _: vowels.pop(), s, 0, re.I)
+        word = list(s)
+        start = 0
+        end = len(word) - 1
+        vowels = 'aeiouAEIOU'
+        
+        while start < end:
+            if word[start] not in vowels:
+                start += 1
+                continue
+            
+            if word[end] not in vowels:
+                end -= 1
+                continue
+            
+            word[start], word[end] = word[end], word[start]
+            start += 1
+            end -= 1
+                
+        return ''.join(word)

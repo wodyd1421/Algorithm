@@ -8,7 +8,7 @@ class Solution:
                 if s[n] in 'aeiou':
                     Max += 1
                     
-        maxN = [Max]
+        output = Max
         
         for i in range(len(s) - k):
             
@@ -18,6 +18,6 @@ class Solution:
             if s[i + k] in 'aeiou':
                 Max += 1
                 
-            maxN.append(Max)
+            output = max(output, Max)
             
-        return max(maxN)
+        return output

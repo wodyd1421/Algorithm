@@ -1,9 +1,8 @@
+from collections import deque
 class Solution:
-    def predictPartyVictory(self, senate: str) -> list:
+    def predictPartyVictory(self, senate: str) -> str:
         queue = deque(senate)
-        while len(queue) != 1:
-            if 'R' not in queue or 'D' not in queue:
-                break
+        while ('R' in queue) and ('D' in queue):
             if queue[0] == 'R':
                 queue.remove('D')
             else:
